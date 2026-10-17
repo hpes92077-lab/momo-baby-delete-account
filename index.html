@@ -25,6 +25,18 @@ h2{
     padding:18px;
     border-radius:10px;
 }
+.note{
+    background:#fff5f8;
+    border-left:5px solid #ff6b9d;
+    padding:15px;
+    margin:20px 0;
+}
+ul,ol{
+    padding-left:1.4em;
+}
+a{
+    color:#c2185b;
+}
 </style>
 
 </head>
@@ -34,72 +46,130 @@ h2{
 <h1>Momo Baby Tracker - Account Deletion</h1>
 
 <p>
-This page explains how users can permanently delete their Momo Baby Tracker account and associated cloud data.
+This page explains how to delete your <b>Momo Baby Tracker</b> app sign-in and the
+cloud parenting data that the App supports deleting, and what is <b>not</b>
+automatically removed.
 </p>
 
-<h2>How to Delete Your Account</h2>
+<div class="note">
+We do <b>not</b> claim that every copy of every data type is erased everywhere.
+Some records are retained for security, and some data stays on other devices or
+outside the App.
+</div>
+
+<h2>How to Delete Your Account in the App</h2>
 
 <div class="box">
 
 <ol>
 
 <li>
-Open <b>Momo Baby Tracker</b>.
+Open <b>Momo Baby Tracker</b> and sign in with Google (if you are not already signed in).
 </li>
 
 <li>
-Sign in using your Google account.
+Open the <b>Member Center</b> (for example: tap the membership chip such as
+<b>Free member</b> / <b>免費會員</b> on the home or Settings header).
 </li>
 
 <li>
-Go to:
-
-<b>Settings → Account Center → Delete Account</b>
+Tap <b>Permanently delete account</b> / <b>永久刪除帳號</b>.
 </li>
 
 <li>
-Type <b>DELETE</b> to confirm.
+Read the warnings, then tap <b>Next</b>.
 </li>
 
 <li>
-Press <b>Delete Account</b>.
+Type <b>DELETE</b> to enable confirmation, then tap <b>Delete account</b> only if you
+intend to proceed.
 </li>
 
 </ol>
 
 </div>
 
-<h2>What Data Will Be Deleted</h2>
+<p>
+Path summary (current App UI, version 1.0.155+320):
+<br>
+<b>Member Center → Permanently delete account → type DELETE → confirm</b>
+</p>
 
-<ul>
-
-<li>User Profile</li>
-<li>Baby Profiles</li>
-<li>Milk Records</li>
-<li>Breastfeeding Records</li>
-<li>Sleep Records</li>
-<li>Diaper Records</li>
-<li>Temperature Records</li>
-<li>Growth Records</li>
-<li>Food Records</li>
-<li>Medicine Records</li>
-<li>Calendar Records</li>
-<li>Custom Records</li>
-<li>Uploaded Photos</li>
-
-</ul>
-
-<h2>Retention</h2>
+<h2>What the App Deletes (Supported Scope)</h2>
 
 <p>
-All cloud data is permanently deleted immediately after account deletion.
-No personal cloud data is retained after deletion.
+When deletion completes successfully, the App removes:
 </p>
+
+<ul>
+<li>Your <b>Momo Baby Tracker app sign-in</b> (Firebase Authentication user for this App)</li>
+<li><b>Cloud parenting data under your App user</b> that the App supports deleting
+(for example: baby profiles and care logs stored in the App’s Firebase Cloud Firestore
+user space, such as feeding, sleep, diaper, temperature, growth, food, medicine,
+calendar/custom events, notifications, and related profile / membership status documents
+the App is designed to wipe)</li>
+<li><b>Local App data on this device</b> (cleared as part of the in-App deletion flow)</li>
+</ul>
+
+<p>
+The exact cloud collections wiped by the current App runtime are the user subcollections
+the deletion service is built to clear (including legacy billing-related cleanup documents
+under the same user). This page describes that supported wipe scope; it does not promise
+deletion of data the App cannot reach.
+</p>
+
+<h2>What Is Retained or Not Automatically Removed</h2>
+
+<ul>
+<li>
+<b>Minimal security lock record</b>: after deletion starts, the App keeps a minimal
+deletion-lock record (account identifier / UID and timestamp). It does <b>not</b> contain
+parenting care logs. Purpose: reduce the risk that an old device writes cloud data again
+for a deleted account.
+</li>
+<li>
+<b>Other devices</b>: local data on other phones/tablets is <b>not</b> cleared automatically.
+Please sign out or uninstall the App on those devices.
+</li>
+<li>
+<b>Exports and backups</b>: files you previously exported or saved outside the App
+(PDF/CSV/backup archives, copies in Downloads/cloud drives, etc.) are <b>not</b> deleted
+automatically.
+</li>
+<li>
+<b>Your Google Account</b>: deleting the App sign-in does <b>not</b> delete your Google Account
+itself.
+</li>
+<li>
+<b>Google Play subscriptions</b>: account deletion does <b>not</b> cancel a Google Play
+subscription. If you subscribed, cancel it in Google Play
+(<b>Payments &amp; subscriptions</b>) to avoid further charges.
+</li>
+<li>
+<b>Diagnostics / crash reports</b>: diagnostic data already sent to service providers
+(for example Firebase Crashlytics) may remain according to that provider’s retention policy.
+The App does not promise immediate erasure of all historical diagnostic copies.
+</li>
+</ul>
 
 <h2>Need Help?</h2>
 
 <p>
-If you experience any issue deleting your account, please contact the developer through the email address listed on Google Play.
+If you have trouble deleting your account, contact:
+</p>
+
+<p>
+Email: <strong><a href="mailto:contact@mujunda.com">contact@mujunda.com</a></strong>
+</p>
+
+<p>
+Related: <a href="https://hpes92077-lab.github.io/momo-baby-policy/">Privacy Policy</a>
+</p>
+
+<hr>
+
+<p>
+© 2026 Momo Baby Tracker（萌萌育兒記） · Page revised: 2026-10-17
 </p>
 
 </body>
